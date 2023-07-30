@@ -34,7 +34,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 [author]
   name = "griedzx"
   email = "2719323380@qq.com"
-  link = "<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=lOf88frw4aSip6TU5eW69-v5" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_01.png"/></a>"
+  link = "http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=lOf88frw4aSip6TU5eW69-v5"
 
 # 菜单配置
 [menu]
