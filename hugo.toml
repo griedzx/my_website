@@ -3,18 +3,74 @@ baseURL = "http://griedzx.github.io"
 # 更改使用 Hugo 构建网站时使用的默认主题
 theme = "LoveIt"
 
-# 网站标题
-title = "欢迎来到我的空间"
+# 设置默认的语言 ["en", "zh-cn", "fr", "pl", ...]
+defaultContentLanguage = "zh-cn"
 
-# 网站语言, 仅在这里 CN 大写 ["en", "zh-CN", "fr", "pl", ...]
-languageCode = "zh-CN"
-# 语言名称 ["English", "简体中文", "Français", "Polski", ...]
-languageName = "简体中文"
-# 是否包括中日韩文字
-hasCJKLanguage = true
+[languages]
+  [languages.en]
+    weight = 1
+    title = "My New Hugo Site"
+    languageCode = "en"
+    languageName = "English"
+    [[languages.en.menu.main]]
+      weight = 1
+      identifier = "posts"
+      pre = "🍱"
+      post = ""
+      name = "Posts"
+      url = "/posts/"
+      title = "posts"
+    [[languages.en.menu.main]]
+      weight = 2
+      identifier = "tags"
+      pre = "🍔"
+      post = ""
+      name = "Tags"
+      url = "/tags/"
+      title = "tags"
+    [[languages.en.menu.main]]
+      weight = 3
+      identifier = "categories"
+      pre = "🍿"
+      post = ""
+      name = "Categories"
+      url = "/categories/"
+      title = "categories"
+
+  [languages.zh-cn]
+    weight = 2
+    title = "欢迎来到我的空间🎈"
+    languageCode = "zh-CN"
+    languageName = "简体中文"
+    # 是否包括中日韩文字
+    hasCJKLanguage = true
+    [[languages.zh-cn.menu.main]]
+      weight = 1
+      identifier = "posts"
+      pre = "🤴"
+      post = ""
+      name = "文章"
+      url = "/posts/"
+      title = ""
+    [[languages.zh-cn.menu.main]]
+      weight = 2
+      identifier = "tags"
+      pre = ""
+      post = ""
+      name = "标签"
+      url = "/tags/"
+      title = ""
+    [[languages.zh-cn.menu.main]]
+      weight = 3
+      identifier = "categories"
+      pre = ""
+      post = ""
+      name = "分类"
+      url = "/categories/"
+      title = ""
 
 # 默认每页列表显示的文章数目
-paginate = 9
+paginate = 17
 # 谷歌分析代号 [UA-XXXXXXXX-X]
 googleAnalytics = "G-4MEBSY9D88"
 # 版权描述，仅仅用于 SEO
@@ -123,7 +179,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   #  Section (所有文章) 页面配置
   [params.section]
     # section 页面每页显示文章数量
-    paginate = 20
+    paginate = 17
     # 日期格式 (月和日)
     dateFormat = "01-02"
     # RSS 文章数目
@@ -207,7 +263,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
   # 作者的社交信息设置
   [params.social]
-    GitHub = "xxxx"
+    GitHub = "https://github.com/griedzx"
     Linkedin = ""
     Twitter = "xxxx"
     Instagram = "xxxx"
@@ -374,7 +430,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       Mix = false
     #  评论系统设置
     [params.page.comment]
-      enable = false
+      enable = true
       # Disqus 评论系统设置
       [params.page.comment.disqus]
         # 
