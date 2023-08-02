@@ -127,7 +127,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       pre = ""
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
-      post = "🕴"
+      post = "👨‍💻"
       #  是否为标题显示打字机动画
       typeit = false
 
