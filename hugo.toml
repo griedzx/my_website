@@ -47,10 +47,13 @@ defaultContentLanguage = "zh-cn"
     [[languages.zh-cn.menu.main]]
       weight = 1
       identifier = "posts"
+      # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       pre = "🤴"
+      # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
       post = ""
       name = "文章"
       url = "/posts/"
+      # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
       title = ""
     [[languages.zh-cn.menu.main]]
       weight = 2
@@ -92,39 +95,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   email = "2719323380@qq.com"
   link = "http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=lOf88frw4aSip6TU5eW69-v5"
 
-# 菜单配置
-[menu]
-  [[menu.main]]
-    weight = 1
-    identifier = "posts"
-    # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-    pre = ""
-    # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
-    post = ""
-    name = "文章"
-    url = "/posts/"
-    # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
-    title = ""
-  [[menu.main]]
-    weight = 2
-    identifier = "tags"
-    pre = ""
-    post = ""
-    name = "标签"
-    url = "/tags/"
-    title = ""
-  [[menu.main]]
-    weight = 3
-    identifier = "categories"
-    pre = ""
-    post = ""
-    name = "分类"
-    url = "/categories/"
-    title = ""
-
 [params]
   # 网站默认主题样式 ["auto", "light", "dark"]
-  defaultTheme = "auto"
+  defaultTheme = "dark"
   # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
   gitRepo = ""
   #  哪种哈希函数用来 SRI, 为空时表示不使用 SRI
@@ -135,7 +108,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # 网站标题, 用于 Open Graph 和 Twitter Cards
   title = "我的网站"
   # 网站描述, 用于 RSS, SEO, Open Graph 和 Twitter Cards
-  description = "这是我的全新 Hugo 网站"
+  description = "欢迎来到griedzx的空间"
   # 网站图片, 用于 Open Graph 和 Twitter Cards
   images = ["/logo.png"]
 
@@ -150,11 +123,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # LOGO 的 URL
       logo = ""
       # 标题名称
-      name = ""
+      name = "griedzx 的空间"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       pre = ""
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
-      post = ""
+      post = "🕴"
       #  是否为标题显示打字机动画
       typeit = false
 
@@ -170,7 +143,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     #  是否显示作者
     author = true
     # 网站创立年份
-    since = 2019
+    since = 2023
     # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
     icp = ""
     # 许可协议信息 (支持 HTML 格式)
@@ -245,7 +218,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       #  主页显示的网站标题 (支持 HTML 格式)
       title = ""
       # 主页显示的网站副标题 (允许 HTML 格式)
-      subtitle = "这是我的全新 Hugo 网站"
+      subtitle = "欢迎来到我的空间🎈"
       # 是否为副标题显示打字机动画
       typeit = true
       # 是否显示社交账号
