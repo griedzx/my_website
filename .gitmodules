@@ -1,6 +1,3 @@
 [submodule "themes/LoveIt"]
 	path = themes/LoveIt
 	url = https://github.com/griedzx/LoveIt.git
-[submodule "public"]
-	path = public
-	url = https://github.com/griedzx/griedzx.github.io.git
