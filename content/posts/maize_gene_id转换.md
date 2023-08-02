@@ -1,9 +1,10 @@
 ---
 title: "Maize_gene_id转换"
-date: 2023-07-30T21:59:19+08:00
+date: 2023-07-18T21:59:19+08:00
 draft: false
+tags: ["maize_gene_id"]
+categories: ["GO&KEGG富集分析"]
 ---
-
 # Maize_geneid转换
 
 ## 问题描述

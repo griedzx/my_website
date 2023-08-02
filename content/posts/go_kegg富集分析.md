@@ -1,9 +1,9 @@
 ---
 title: "Go_kegg富集分析"
-date: 2023-07-30T21:58:29+08:00
+date: 2023-07-16T21:58:29+08:00
 draft: false
+categories: ["GO&KEGG富集分析"]
 ---
-
 # GO_KEGG富集分析
 
 ## 富集分析

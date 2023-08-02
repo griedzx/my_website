@@ -1,9 +1,10 @@
 ---
 title: "Annotationhub构建orgdb"
-date: 2023-07-30T21:56:11+08:00
+date: 2023-07-17T21:56:11+08:00
 draft: false
+tags: ["AnnotationHub", "OrgDb"]
+categories: ["GO&KEGG富集分析"]
 ---
-
 # AnnotationHub构建OrgDb
 
 要进行GO或者KEGG富集分析，就需要知道每个基因对应什么样的GO/KEGG分类，OrgDb就是存储不同数据库基因ID之间对应关系，以及基因与GO等注释的对应关系的 R 软件包
@@ -28,14 +29,14 @@ AnnotationHub with 8 records
 #   rdatapath, sourceurl, sourcetype 
 # retrieve records with, e.g., 'object[["AH91642"]]' 
 
-             title                        
+             title                    
   AH91642  | MeSHDb for Zea mays (Corn, v001)   
   AH91817  | wikipathways_Zea_mays_metabolites.rda
   AH97909  | MeSHDb for Zea mays (Corn, v002)   
   AH100374 | MeSHDb for Zea mays (Corn, v003)   
   AH107139 | MeSHDb for Zea mays (Corn, v004)   
   AH111528 | MeSHDb for Zea mays (Corn, v005)   
-  AH111691 | org.Zea_mays.eg.sqlite       
+  AH111691 | org.Zea_mays.eg.sqlite   
   AH111692 | org.Zea_mays_var._japonica.eg.sqlite 
 ```
 
