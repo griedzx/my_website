@@ -1,5 +1,5 @@
 ---
-title: "First_post"
+title: "About"
 date: 2023-06-17T18:13:33+08:00
 draft: false
 tags: ["about me"]
