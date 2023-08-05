@@ -3,7 +3,7 @@ title: "Gwas_turtorial"
 subtitle: ""
 date: 2023-08-05T23:46:51+08:00
 lastmod: 2023-08-05T23:46:51+08:00
-draft: true
+draft: false
 author: ""
 description: ""
 images: []
