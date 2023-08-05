@@ -7,36 +7,6 @@ theme = "LoveIt"
 defaultContentLanguage = "zh-cn"
 
 [languages]
-  [languages.en]
-    weight = 1
-    title = "My New Hugo Site"
-    languageCode = "en"
-    languageName = "English"
-    [[languages.en.menu.main]]
-      weight = 1
-      identifier = "posts"
-      pre = "🍱"
-      post = ""
-      name = "Posts"
-      url = "/posts/"
-      title = "posts"
-    [[languages.en.menu.main]]
-      weight = 2
-      identifier = "tags"
-      pre = "🍔"
-      post = ""
-      name = "Tags"
-      url = "/tags/"
-      title = "tags"
-    [[languages.en.menu.main]]
-      weight = 3
-      identifier = "categories"
-      pre = "🍿"
-      post = ""
-      name = "Categories"
-      url = "/categories/"
-      title = "categories"
-
   [languages.zh-cn]
     weight = 2
     title = "欢迎来到我的空间🎈"
@@ -112,6 +82,10 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # 网站图片, 用于 Open Graph 和 Twitter Cards
   images = ["/logo.png"]
 
+  #  是否显示总访问量
+  [params.busuanzi]
+    enable = true
+  
   # 页面头部导航栏配置
   [params.header]
     # 桌面端导航栏模式 ["fixed", "normal", "auto"]
@@ -135,7 +109,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [params.footer]
     enable = true
     #  自定义内容 (支持 HTML 格式)
-    custom = '别翻了，到底了'
+    custom = ''
     #  是否显示 Hugo 和主题信息
     hugo = true
     #  是否显示版权信息
