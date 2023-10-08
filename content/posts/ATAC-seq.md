@@ -1,11 +1,11 @@
 ---
-title: "ATAC Seq"
+title: "ATAC-Seq数据处理"
 subtitle: ""
 date: 2023-10-07T23:50:18+08:00
 lastmod: 2023-10-07T23:50:18+08:00
 draft: false
 
-tags: []
+tags: ["ATAC-Seq"]
 categories: ["处理和分析高通量测序数据"]
 ---
 ## ATAC-seq数据peak calling
