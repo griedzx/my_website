@@ -1,6 +1,6 @@
 ---
 title: "deeptools_peaks可视化"
-subtitle: ""
+subtitle: "computeMatrix & plot"
 date: 2023-09-12T23:36:49+08:00
 lastmod: 2023-09-12T23:36:49+08:00
 draft: false
@@ -10,10 +10,10 @@ categories: ["处理和分析高通量测序数据"]
 ---
 ## 文件格式
 
-* BED (Browser Extensible Data),一种灵活的储存数据的格式，主要用来 **储存基因组特征** （genomic features） **或注释信息** 。
+* BED (Browser Extensible Data),一种灵活的储存数据的格式，主要用来 **储存基因组特征** （genomic features） **或注释信息(*.summits.bed)** 。
 
   BED格式可用于UCSC的Genome Browser可视化工具中
-* 挖掘生物数据信息时，我们会将未知的序列与已知的reference对比，从而找到未知序列中隐藏的信息。这就是序列比对。常见的序列比对的文件输出格式为sam和bam
+* 挖掘生物数据信息时，我们会将进行序列比对（未知的序列与已知的reference对比，从而找到未知序列中隐藏的信息），常见的序列比对的文件输出格式为sam和bam
 
   Sequence Alignment Mapping (SAM) 格式包括两部分：1. 注释信息（header section）2. 比对结果（alignment section）
 
