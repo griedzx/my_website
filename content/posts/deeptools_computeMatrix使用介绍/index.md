@@ -1,5 +1,5 @@
 ---
-title: "deeptools_peaks可视化"
+title: "deeptools_computeMatrix使用介绍"
 subtitle: "computeMatrix & plot"
 date: 2023-09-12T23:36:49+08:00
 lastmod: 2023-09-12T23:36:49+08:00

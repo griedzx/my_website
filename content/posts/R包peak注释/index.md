@@ -28,6 +28,10 @@ categories: ["处理和分析高通量测序数据"]
 
 [ChIPseeker: an R package for ChIP peak Annotation, Comparison and Visualization (bioconductor.org)](https://bioconductor.org/packages/devel/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html#profile-of-chip-peaks-binding-to-tts-regions)
 
+
+## 实践流程 & 代码
+
+
 ## 其他常规可视化
 
 [CS6: ChIP数据可视化 (guangchuangyu.github.io)](https://guangchuangyu.github.io/2017/10/chipseeker-visualization/)
