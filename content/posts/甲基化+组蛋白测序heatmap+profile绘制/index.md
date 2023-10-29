@@ -10,7 +10,7 @@ categories: ["表观组学"]
 ---
 使用deeptools的 `computeMatrix` + (`plotHeatmap` or `plotProfile`)可以针对某些特定类型的区域如TTS、TES的指定区域范围进行信号富集程度的可视化
 
-## computeMatrix工作原理
+## computeMatrix's parameters
 
 computeMatrix提供两个不同参数（parameters）以指定不同的参考系
 
@@ -48,7 +48,7 @@ Commands:
 
 ## 对不同组蛋白_ChIP-seq测序数据画图
 
-针对对不同的目的蛋白结合的 DNA 片段进行测序数据，我们可以一次性输入多个对应的bigwig文件画成一张图。
+针对与不同的目的蛋白结合的 DNA 片段进行测序数据，我们可以一次性输入多个对应的bigwig文件画成一张图。
 
 具体代码:
 
@@ -73,7 +73,34 @@ for org_path in /home/yuanhx/dzx/230612_encher_data/0*; do
 done
 ```
 
+![1698597014422](image/index/1698597014422.png)
+
 ## 对甲基化测序数据画图
+
+初始数据处理
+
+```shell
+$ head -100 output-prefix.bsmap.mkdup_CHG.bedGraph
+track type="bedGraph" description="output-prefix.bsmap.mkdup CHG methylation levels"
+1	1472	1473	100	9	0
+1	1474	1475	90	311	34
+1	1533	1534	75	6	2
+1	1535	1536	69	99	43
+1	1562	1563	33	3	6
+1	1581	1582	37	3	5
+1	1654	1655	50	2	2
+1	1712	1713	75	9	3
+1	1714	1715	100	3	0
+```
+
+直接使用原始bedGraph数据通过 **bedGraphToBigwig** 转换成bigwig文件画图，missingdata过多，热图黑色部分贼多
+
+人工分bin，将1号染色体的最开始片段位置初始化0，按照100bp分段，对应的四列数据百分比处理
+
+最后处理后的格式如下：
+
+
+画图代码：
 
 ```shell
 bed=" /home/yh/dzx/work_data/gene_length.bed"
@@ -97,6 +124,7 @@ for id in /home/yh/dzx/work/231017_methylation/methylation_bigwig_data/*;do
 done
 ```
 
+![1698597143255](image/index/1698597143255.png "甲基化热图")
 
 ## 分表达水平高低绘制信号富集谱图
 
@@ -160,6 +188,10 @@ for subdir in ear_1 ear_2 shoot_1 shoot_2 tassel; do
 done
 ```
 
+处理后文件存放格式如此
+
+![1698598281509](image/index/1698598281509.png)
+
 画图
 
 ```shell
@@ -181,5 +213,7 @@ for id in /home/yuanhx/dzx/230612_encher_data/0*/result/0*/bam/*bigwig; do
     plotProfile -m $out_path/matrix/${seq_name}_2k.gz  -out $out_path/matrix/${seq_name}_Profile_2K.png
 done
 ```
+
+![1698598460929](image/index/1698598460929.png)
 
  -S bigwig文件 -R bed文件可以分别传入多个

@@ -5,7 +5,7 @@ date: 2023-09-12T23:36:49+08:00
 lastmod: 2023-09-12T23:36:49+08:00
 draft: false
 
-tags: ["deeptools"]
+tags: ["deeptools", "生物信息常见文件格式"]
 categories: ["处理和分析高通量测序数据"]
 ---
 ## 文件格式
