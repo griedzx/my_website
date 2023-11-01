@@ -53,7 +53,7 @@ Commands:
 具体代码:
 
 ```shell
-bed=/home/yuanhx/dzx/230612_encher_data/gene_length.bed
+bed=/home/ljx/yuanh/work_data/Ref_genome/220721_Maize_B73_V4/Maize_gene_1-10_chr.bed
 for org_path in /home/yuanhx/dzx/230612_encher_data/0*; do
     org=$(basename $org_path | sed 's/^...//')
 
@@ -99,11 +99,10 @@ track type="bedGraph" description="output-prefix.bsmap.mkdup CHG methylation lev
 
 最后处理后的格式如下：
 
-
 画图代码：
 
 ```shell
-bed=" /home/yh/dzx/work_data/gene_length.bed"
+bed="/home/ljx/yuanh/work_data/Ref_genome/220721_Maize_B73_V4/Maize_gene_1-10_chr.bed"
 for id in /home/yh/dzx/work/231017_methylation/methylation_bigwig_data/*;do
     org=`echo $id | cut -d '/' -f 8`
     echo "org:$org"
@@ -128,7 +127,7 @@ done
 
 ## 分表达水平高低绘制信号富集谱图
 
-给基因区域bed文件赋值基因表达数据
+给基因区域bed文件赋值基因表达数据,将表达数据赋值至最后一列
 
 ```R
 gene_bed <- read.table("gene_length.bed", header = F, sep = "\t", stringsAsFactors = F)
@@ -160,12 +159,14 @@ for (org in orgs){
             }
             if(org == "ear_2") org = "ear"
             gene_bed$V8[i] <- exp_data_2[which(exp_data_2$tracking_id == gene_bed$V6[i]), paste0("average.",org)]
+	    org = "ear_2"
         }
     }
     write.table(gene_bed, file.path(org, paste0(org, "_gene_exp",".bed")), row.names = F, col.names = F, sep = "\t")
 }
-
 ```
+
+做实验的提供的表达量数据格式真的是个无敌复杂，而且总是多次用到，应该找个时间优化一下格式
 
 根据表达量切分bed文件
 
