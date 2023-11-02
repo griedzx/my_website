@@ -3,7 +3,7 @@ title: "甲基化+组蛋白测序heatmap+profile绘制"
 subtitle: ""
 date: 2023-10-20T01:31:11+08:00
 lastmod: 2023-10-20T01:31:11+08:00
-draft: true
+draft: false
 
 tags: ["computeMatrix"]
 categories: ["表观组学"]
