@@ -113,6 +113,10 @@ categories: ["本科项目育人"]
 
 [科学驿站｜最新研究：基因水平的趋同进化推动植物形态上的趋同进化_腾讯新闻 (qq.com)](https://new.qq.com/rain/a/20221113A03S3T00)
 
+[中科院薛勇彪研究组合作揭示金鱼草基因组S位点超基因的动态演化机制 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/621752664)
+
+[遗传发育所等揭示被子植物自交不亲和性起源、丢失和重获的高度动态进化机制----中国科学院 (cas.cn)](https://www.cas.cn/syky/202111/t20211108_4813129.shtml)
+
 [花柱异型研究进展.pdf (book118.com)](https://max.book118.com/html/2017/0627/118334414.shtm)
 
 This document talks about:
