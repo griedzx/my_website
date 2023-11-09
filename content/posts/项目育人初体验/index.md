@@ -4,7 +4,7 @@ subtitle: ""
 date: 2023-11-03T23:42:17+08:00
 lastmod: 2023-11-03T23:42:17+08:00
 draft: false
-password: test
+password:"test"
 
 tags: []
 categories: ["本科项目育人"]
