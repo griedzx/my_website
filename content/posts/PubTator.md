@@ -3,14 +3,12 @@ title: "PubTator"
 subtitle: ""
 date: 2023-10-17T00:25:14+08:00
 lastmod: 2023-10-17T00:25:14+08:00
-draft: true
+draft: false
 
 tags: []
 categories: ["生物文本挖掘"]
 ---
-
 ## API调用
-
 
 ```shell
 #! /bin/bash
@@ -27,7 +25,6 @@ do
     sleep 2
 done < $id_list
 ```
-
 
 ```shell
 cat abstract_pubtator.txt|grep -v '|t|' |grep -v '|a|'|awk -F"[[:space:]]+" '{print $5}'|head
