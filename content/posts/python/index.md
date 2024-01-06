@@ -3,7 +3,7 @@ title: "python基础知识复习"
 subtitle: ""
 date: 2023-12-29T22:53:14+08:00
 lastmod: 2023-12-29T22:53:14+08:00
-draft: true
+draft: false
 
 tags: []
 categories: ["python"]
@@ -14,13 +14,13 @@ python常用知识点复习
 
 ### 数据类型
 
-数值类型： 整数 分数 浮点数 复数 布尔型 字符串
+* 数值类型： 整数 分数 浮点数 复数 布尔型 字符串
+* 序列类型： 字符串 列表(list) 元组(tuple)
+* 映射和集合类型： 字典(dict) 集合(set) 冻结集(frozenset)
 
-序列类型： 字符串 列表(list) 元组(tuple)
+#### 数值类型
 
-映射和集合类型： 字典(dict) 集合(set) 冻结集(frozenset)
-
-#### 整数和分数
+##### 整数和分数
 
 * 整数默认十进制，可以使用内建函数 `bin` `oct` `hex`将整数转换成二进制、八进制、十六进制的字符串
 
@@ -72,14 +72,14 @@ Fraction(4, 25)
 
 * 码值转换
 
-#### 布尔型
+##### 布尔型
 
 * `bool()` 求布尔值
 * 非零数字与非空集合布尔值都是 `True`
 * 成员操作符 `in` 返回布尔值
 * 布尔类型对象的三个操作符：`and`  `or` `not`
 
-#### 浮点数与复数
+##### 浮点数与复数
 
 * 浮点数64位，52位表示底，11为表示指数，剩下一位表示符号正负
 * 复数为两个浮点数组成的有序数对，实部和虚部都是浮点数
@@ -104,7 +104,52 @@ Fraction(4, 25)
   >>> from cmath import *
   ```
 
-#### 字符串
+#### 序列类型
+
+任意类型的值作为元素(element)，按照一定顺序组合而成的数据结构
+
+##### 通用操作符
+
+* `对象 [not] in 序列`
+* `seq[m:n]`
+* `seq1 + seq2`
+* `seq1 * 3`  重复操作
+
+##### 内建函数
+
+* `len()`
+* `min()` `max()`
+* `sum()`
+* `sort()`     `zip()`
+
+  ```python
+  >>> zip([1,2,3],['a','b','c']) 
+  <zip object at 0x000001E4E0533C80>
+  ```
+
+  `zip()`函数返回的是一个迭代器，可以通过将其转换为列表来查看其内容
+
+  ```python
+  >>> result = list(zip([1,2,3],['a','b','c']))
+  >>> result
+  [(1, 'a'), (2, 'b'), (3, 'c')]
+  ```
+
+  将两个列表 `[1,2,3]`和 `['a','b','c']`压缩成一个列表，其中每个元素都是一个元组
+* `reversed()` 倒序函数  `enumerate()`枚举函数
+
+  `enumerate()`函数将一个可遍历的数据对象（如列表、元组或字符串）组合为一个索引序列，同时列出数据和数据下标
+
+  ```
+  >>> for i, value in enumerate(['a', 'b', 'c']):
+  ...     print(i, value)
+  ...
+  0 a
+  1 b
+  2 c
+  ```
+
+##### 字符串
 
 * 赋值
 
@@ -143,7 +188,7 @@ Fraction(4, 25)
   * `%g`：根据值的大小决定使用%f或%e。
   * `%G`：类似%g，但使用大写字母。
 
-#### 列表
+##### 列表
 
 列表（list）是一种有序的集合，可以随时添加和删除其中的元素
 
@@ -181,7 +226,7 @@ Fraction(4, 25)
    new_list = sorted(my_list)
    ```
 
-#### 元组
+##### 元组
 
 元组（tuple）是一种有序的不可变序列，一旦创建就不能修改，是一种只读的数据结构
 
@@ -222,6 +267,117 @@ Fraction(4, 25)
    ```
 8. 可哈希，可以作为字典的键key
 
+### 练习
+
+#### 数学运算
+
+运算符： `//` 向下取整  `%` 取模
+
+使用cmath中的函数计算复数1+2j的正弦值（sin）和极坐标表示(polar)
+
+```python
+import cmath
+
+z = 1 + 2j
+sin_z = cmath.sin(z)
+print(f"The sin of {z} is {sin_z}")
+
+#极坐标转换表示
+r,theta = cmath.polar(z)
+print (f"The polar coordinates of {z} are (r={r}, theta={theta})")
+print (f"The polar coordinates of {z} are ({r:.2f},{theta:.2f})")
+```
+
+在Python的格式化字符串（f-string）中，`{r:.2f}`表示将变量 `r`格式化为浮点数，并保留两位小数。
+
+在 `{r:.2f}`中，`:`是格式说明符的开始，`.2f`是格式说明符，表示浮点数格式并保留两位小数
+
+```python
+The sin of (1+2j) is (3.165778513216168+1.959601041421606j)
+The polar coordinates of (1+2j) are (r=2.23606797749979, theta=1.1071487177940904)
+The polar coordinates of (1+2j) are (2.24,1.11)
+```
+
+使用数学函数factorial计算70的阶乘
+
+```python
+from math import factorial
+factorial(70)
+
+import math
+math.factorial(70)
+```
+
+#### 字符串使用
+
+#### 列表使用
+
+```python
+a_list = [1,2,3,4,5]
+alist = list(range(1,6))
+blst = [1, 'a', 3.6, 2+5j]
+```
+
+```python
+>>> alist + blst
+[1, 2, 3, 4, 5, 1, 'a', 3.6, (2+5j)]
+>>> blst * 3
+[1, 'a', 3.6, (2+5j), 1, 'a', 3.6, (2+5j), 1, 'a', 3.6, (2+5j)]
+```
+
+##### 列表模拟堆栈
+
+堆栈，stack,后进先出
+
+可以把堆栈想象成一摞盘子，新加入的盘子放在最上面，而移除盘子时也只能从最上面开始移除
+
+```python
+alst = [1,2,3,4,5]
+
+#入栈
+alst.append(6)
+
+#出栈
+alst.pop(-1)
+```
+
+##### 列表模拟队列
+
+队列,queue,先进先出
+
+可以把队列想象成一排等待付款的人，新来的人站在队伍的最后，而每次只有排在最前面的人可以离开
+
+```python
+alst = [1,2,3,4,5]
+
+#入队
+alst.append(6)
+
+#出队
+alst.pop(0) #移除第一个元素，相当于队列开头元素
+```
+
+或者使用 `collections`模块中的 `deque`（双端队列）来实现队列
+
+```python
+from collections import deque
+
+# 创建一个空队列
+queue = deque()
+
+# 入队操作
+queue.append('a')
+queue.append('b')
+queue.append('c')
+
+print(queue)  # 输出：deque(['a', 'b', 'c'])
+
+# 出队操作
+item = queue.popleft()
+print(item)  # 输出：'a'
+print(queue)  # 输出：deque(['b', 'c'])
+```
+
 ## 流程控制、字典与集合
 
 ### 流程控制
@@ -246,3 +402,21 @@ Fraction(4, 25)
 ### 字典
 
 ### 集合
+
+## 文件读写
+
+## 函数定义
+
+## 对象编程
+
+### 类定义、封装与组合
+
+### 继承、多态
+
+## 泛函编程、迭代器、生成器
+
+## 动态语法、异常处理
+
+## 模块与程序库
+
+## 正则表达式
