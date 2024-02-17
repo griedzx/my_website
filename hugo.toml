@@ -41,6 +41,13 @@ defaultContentLanguage = "zh-cn"
       name = "分类"
       url = "/categories/"
       title = ""
+    [[languages.zh-cn.menu.main]]
+      weight = 4
+      pre = ""
+      post = ""
+      name = "Uptime-Status"
+      url = "/uptime-status/"
+      title = ""
 
 # 默认每页列表显示的文章数目
 paginate = 17
