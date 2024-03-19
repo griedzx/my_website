@@ -6,7 +6,7 @@ lastmod: 2024-03-09T16:56:43+08:00
 draft: false
 
 tags: []
-categories: []
+categories: ["处理和分析高通量测序数据"]
 ---
 ## 实验材料
 
@@ -133,6 +133,7 @@ Trimmomatic SE -phred33 -threads 3 /Bioinfo/bio_2023_2024_2/bio_zxdai/ATAC-seq/d
 
 #### 序列比对
 
+agstat.txt
 
 参考基因组下载
 
@@ -159,6 +160,8 @@ nohup bwa index ./ref/Zm*.fa &
 cd ..
 ```
 
+使用 `bwa index` 建立索引，索引文件会以 `Zm*.fa`所匹配到的表达式为文件名前缀
+
 ```shell
 #align
 #mem algorithm
@@ -169,11 +172,15 @@ bwa aln -t 5 ./data/ref/Zm-B73-REFERENCE-NAM-5.0.fa ./data/fastq/SRR5748809.fast
 bwa samse ./data/ref/Zm-B73-REFERENCE-NAM-5.0.fa ./align/SRR5748809.sai ./data/fastq/SRR5748809.fastq 1>./align/SRR5748809.aln.sam &
 ```
 
-`bwa mem`是BWA的默认算法，适用于长度70bp-1Mbp的序列。它比 `bwa aln`更快，更准确，尤其是对于较长的序列。`bwa mem`也支持gapped alignment（允许插入和删除），并且可以处理paired-end reads。
+`bwa mem`是BWA的默认算法，适用于长度70bp-1Mbp的序列。它比 `bwa aln`更快，更准确，尤其是对于较长的序列。`bwa mem`也支持gapped alignment（允许插入和删除），并且可以处理paired-end reads
+
+* `-t 多线程并行`
+* `1>./align/SRR5748809.sam`:  将标准输出（对齐结果）重定向到SAM文件。
+* `2>./align/bwa_mem.log`:  将标准错误输出（如错误和警告信息）重定向到日志文件。
 
 `bwa aln`是BWA的旧算法，适用于长度up to ~100bp的序列。它使用回溯法（backtracking）进行比对，对于较短的序列效果较好。然而，`bwa aln`不支持gapped alignment，因此对于包含插入和删除的序列，其比对效果可能不如 `bwa mem`。推荐使用 `bwa mem`
 
-可以使用-t多线程并行
+aln算法会先生成 `.sai` BWA-backtrack算法的对齐结果文件,然后使用 `bwa samse`--BWA的一个模块，将BWA-backtrack算法的对齐结果转换为SAM格式
 
 比对结果的统计
 
@@ -182,9 +189,11 @@ echo $! > bwa.pid
 wait $(cat bwa.pid) && samtools view -bS ./align/SRR5748809.sam | samtools flagstat - > ./align/flagstat.txt
 ```
 
-```shell
-(while ps -p 116953 > /dev/null; do sleep 1; done; samtools view -bS ./align/SRR5748809.sam | samtools flagstat - > ./align/flagstat.txt) &
-```
+将测序数据比对回基因组需要花费一定时间，可以使用上述命令或者写成一个脚本以连贯执行命令
+
+* `-b`: samtools将输出转换为BAM格式
+* `-S`: 指定samtools输入文件SAM格式
+* `-`: 表示从标准输入（stdin）读取数据，数据来自于前一个命令的输出
 
 
 ## 实验结果
@@ -207,6 +216,27 @@ wait $(cat bwa.pid) && samtools view -bS ./align/SRR5748809.sam | samtools flags
 
 ![1710343744796](image/index/1710343744796.png)
 
+
+
+序列比对数据结果
+
+```shell
+[bio_zxdai@bioinfo-01 align]$ cat flagstat.txt
+27933221 + 0 in total (QC-passed reads + QC-failed reads)
+0 + 0 secondary
+34 + 0 supplementary
+0 + 0 duplicates
+27376162 + 0 mapped (98.01% : N/A)
+0 + 0 paired in sequencing
+0 + 0 read1
+0 + 0 read2
+0 + 0 properly paired (N/A : N/A)
+0 + 0 with itself and mate mapped
+0 + 0 singletons (N/A : N/A)
+0 + 0 with mate mapped to a different chr
+0 + 0 with mate mapped to a different chr (mapQ>=5)
+```
+
 ## 实验总结
 
 原始测序数据不错，使用FastQC质量控制查看一下，保证
@@ -214,6 +244,15 @@ wait $(cat bwa.pid) && samtools view -bS ./align/SRR5748809.sam | samtools flags
 1. 序列质量合格
 2. 没有过表达的primer adaptor
 3. 序列长度不是很短 即可
+
+
+序列比对数据结果分析
+
+* `27933221 + 0 in total (QC-passed reads + QC-failed reads)`: 总共有27933221个reads，其中没有QC失败的reads。测序数据的质量应该是相当好的
+* `0 + 0 secondary`: 没有secondary（次要的）对齐，这些通常是由于reads可以对齐到多个位置。
+* `34 + 0 supplementary`: 有34个补充的对齐，这些通常是由于reads可以对齐到多个位置。
+* `27376162 + 0 mapped (98.01% : N/A)`: 有27376162个reads被映射到参考序列，占总reads的98.01%。非常高的映射率，说明大部分reads都能找到参考序列上的对应位置
+* `0 + 0 paired in sequencing`、`0 + 0 read1`、`0 + 0 read2`、`0 + 0 properly paired (N/A : N/A)`、`0 + 0 with itself and mate mapped`、`0 + 0 singletons (N/A : N/A)`、`0 + 0 with mate mapped to a different chr`、`0 + 0 with mate mapped to a different chr (mapQ>=5)`: 这些统计信息都是关于配对的reads的，但在这个数据集中，所有的reads都是单端的，所以这些统计信息都是0
 
 ## 参考
 
