@@ -1,8 +1,0 @@
-To https://github.com/griedzx/my_website.git
-   3003778..c06a5b8  source -> source
-warning: in the working copy of 'history.txt', LF will be replaced by CRLF the next time Git touches it
-[source ce96bd2] Daily update 2024/03/24 周日
- 3 files changed, 6 insertions(+), 3 deletions(-)
- create mode 100644 history.txt
-To https://github.com/griedzx/my_website.git
-   c06a5b8..ce96bd2  source -> source
