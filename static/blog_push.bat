@@ -14,7 +14,7 @@ for /f "delims=" %%A in ('findstr /r "^[0-9][0-9]*-[0-9][0-9]*-[0-9][0-9]*" "%ou
 )
 
 :: 如果日期行数达到5，覆盖文件
-if !dateCount! geq 5 (
+if !dateCount! geq 3 (
     echo %date% > %outputFile%
 )
 
