@@ -22,3 +22,4 @@ cd E:\my_website\ >> %outputFile% 2>&1
 git add . >> %outputFile% 2>&1
 git commit -m "Daily update %date%" >> %outputFile% 2>&1
 git push origin source >> %outputFile% 
+echo. >> %outputFile%

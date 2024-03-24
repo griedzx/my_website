@@ -5,3 +5,11 @@ Your branch is up to date with 'origin/source'.
 nothing to commit, working tree clean
 Everything up-to-date
 2024/03/24 周日 
+warning: in the working copy of 'static/blog.log', LF will be replaced by CRLF the next time Git touches it
+[source 8daf345] Daily update 2024/03/24 鍛ㄦ棩
+ 2 files changed, 12 insertions(+), 4 deletions(-)
+2024/03/24 周日 
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+ 
+2024/03/25 周一 
