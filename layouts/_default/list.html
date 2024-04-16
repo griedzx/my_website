@@ -1,6 +1,0 @@
-{{- $events := slice }}
-{{- $pages := .Site.RegularPages }}
-{{- range $pages }}
-  {{- $events = $events | append (dict "title" .Title "start" (time.Format "2006-01-02" .Date) "url" .RelPermalink "allDay" true ) }}
-{{- end -}}
-{{- $events | jsonify -}}
